@@ -3,6 +3,7 @@ const path = require("path");
 const app = express();
 const router = require("./routes");
 const log = require("./middleweres/logger");
+const port = process.env.PORT || 3000;
 
 app.use(log);
 app.use(express.urlencoded({ extended: true }));
@@ -16,4 +17,4 @@ app.use((req, res, next) => {
     message: "Resource " + req.originalUrl + " Not Found",
   });
 });
-app.listen(3000, () => console.log("http://localhost:3000"));
+app.listen(port, () => console.log(`${port}`));
