@@ -24,4 +24,4 @@ app.use((req, res, next) => {
     message: "Resource " + `'` + req.originalUrl + `'` + " Not Found || goto -> /api/v2/product",
   });
 });
-app.listen(3306, "0.0.0.0", () => console.log(`Server is Runing`));
+app.listen(process.env.PORT || 3306, "0.0.0.0", () => console.log(`Server is Runing`));
