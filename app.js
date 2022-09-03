@@ -5,7 +5,10 @@ const productRouter = require("./app/product/routes");
 const productRouterV2 = require("./app/product_v2/routes");
 const logger = require("morgan");
 const cors = require("cors");
-const port = process.env.PORT || 3000;
+
+require("dotenv").config();
+let port = process.env.PORT;
+let host = process.env.HOST;
 
 app.use(cors());
 app.use(logger("dev"));
@@ -21,4 +24,4 @@ app.use((req, res, next) => {
     message: "Resource " + `'` + req.originalUrl + `'` + " Not Found || goto -> /api/v2/product",
   });
 });
-app.listen(port, () => console.log(`${port}`));
+app.listen(3306, "localhost", () => console.log(`Server is listening ${host}:${port}`));

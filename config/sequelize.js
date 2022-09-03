@@ -1,12 +1,21 @@
 const { Sequelize } = require("sequelize");
+require("dotenv").config();
 
 const sequelize = new Sequelize({
-  database: "bilal-cruds-v2",
-  host: "localhost",
-  username: "root",
-  password: "root",
-  dialect: "mysql",
+  database: process.env.DATABASE,
+  host: process.env.HOST,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  dialect: process.env.DIALECT,
 });
+
+// const sequelize = new Sequelize({
+//   database: "1ZNFMZwwDF",
+//   host: "remotemysql.com",
+//   username: "1ZNFMZwwDF",
+//   password: "CmYmkUFzfc",
+//   dialect: "mysql",
+// });
 
 (async () => {
   try {
