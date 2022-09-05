@@ -29,4 +29,4 @@ app.use((req, res, next) => {
     message: "Resource " + `'` + req.originalUrl + `'` + " Not Found || goto -> /api/v2/product",
   });
 });
-app.listen(process.env.PORT || 3306, "0.0.0.0", () => console.log(`Server is Runing : http://localhost:3306`));
+app.listen(process.env.PORT || 27017, "0.0.0.0", () => console.log(`Server is Runing : http://localhost:3306`));
