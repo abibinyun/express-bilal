@@ -32,8 +32,8 @@ const view = async (req, res) => {
 const destroy = async (req, res) => {
   let id = req.params.id;
   await Product.sync();
-  await Product.destroy({ where: { id: id } });
-  res.send("product is delete");
+  let products = await Product.destroy({ where: { id: id } });
+  res.send(products);
 };
 
 const post = async (req, res) => {
@@ -61,8 +61,8 @@ const update = async (req, res) => {
     fs.renameSync(image.path, target);
     try {
       await Product.sync();
-      await Product.update({ users_id, name, price, stock, status, image_url: `http://localhost:3000/public/${image.originalname}` }, { where: { id: id } });
-      res.send("product is update");
+      let products = await Product.update({ users_id, name, price, stock, status, image_url: `http://localhost:3000/public/${image.originalname}` }, { where: { id: id } });
+      res.send(products);
     } catch (e) {
       res.send(e);
     }
