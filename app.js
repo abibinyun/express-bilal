@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   res.status(404);
   res.send({
     status: "failed",
-    message: "Resource " + `'` + req.originalUrl + `'` + " Not Found || goto -> /api/v2/product",
+    message: "Resource " + `'` + req.originalUrl + `'` + " Not Found || goto -> /api/v3/product or /api/v4/product ",
   });
 });
 app.listen(process.env.PORT || 27017, "0.0.0.0", () => console.log(`Server is Runing : http://localhost:3306`));
